@@ -60,6 +60,7 @@ router.post('/login', async (req, res) => {
     try {
         // Extract aadharCardNumber and password from request body
         const { aadharnumber, password } = req.body;
+        console.log("req.body : ", req.body)
 
 
         // Check if aadharCardNumber or password is missing
