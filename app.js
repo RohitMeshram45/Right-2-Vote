@@ -24,7 +24,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-app.use('/user', userRoutes);
+app.use('/user',()=> console.log("User Routes found"), userRoutes);
 app.use('/candidate', candidateRoutes);
 app.use('/contact', contactRoutes);
 
