@@ -18,7 +18,7 @@ export const AuthVoteProvider = ({ children }) => {
     const user = [];
     const admin = [];
 
-    const host = "https://voting-rohit.onrender.com";
+    const host = "https://voting-rohit.onrender.com/";
 
     const userLogin = async ({ aadharnumber, password }) => {
         const loginUrl = `${host}/user/login`;
