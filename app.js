@@ -15,7 +15,7 @@ const candidateRoutes = require('./routes/candidateRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 
 const allowedOrigins = [
-  process.env.REACT_APP_FRONTEND_CONNECTTION;
+  process.env.REACT_APP_FRONTEND_CONNECTTION
 ];
 
 const corsOptions = {
