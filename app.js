@@ -37,11 +37,13 @@ const corsOptions = {
 // }));
 // Use the routers
 
+// Use the CORS middleware
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(cookieParser());
 
-// Use the CORS middleware
-app.use(cors(corsOptions));
+
 
 app.use('/user',()=> console.log("User Routes found"), userRoutes);
 app.use('/candidate', candidateRoutes);
