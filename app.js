@@ -15,7 +15,7 @@ const candidateRoutes = require('./routes/candidateRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 
 const allowedOrigins = [
-    `https://voting-rohit-nl2wyor2i-rohitmeshram45s-projects.vercel.app/`
+  process.env.REACT_APP_FRONTEND_CONNECTTION;
 ];
 
 const corsOptions = {
