@@ -16,7 +16,7 @@ const candidateRoutes = require('./routes/candidateRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 
 
-const allowedOrigins = [process.env.REACT_APP_FRONTEND_CONNECTTION];
+const allowedOrigins = ["https://voting-rohit.vercel.app/"];
 
 const corsOptions = {
   origin: function (origin, callback) {
