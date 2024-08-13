@@ -18,7 +18,7 @@ export const AuthVoteProvider = ({ children }) => {
     const user = [];
     const admin = [];
 
-    const host = `https://voting-rohit.onrender.com`;
+    const host = process.env.REACT_APP_HOST
 
     const userLogin = async ({ aadharnumber, password }) => {
         const loginUrl = `${host}/user/login`;
