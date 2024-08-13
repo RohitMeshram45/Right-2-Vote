@@ -19,7 +19,7 @@ const contactRoutes = require('./routes/contactRoutes');
  
 
 app.use(cors({
-    origin: process.env.REACT_APP_FRONTEND_CONNECTTION, // Your frontend URL
+    origin: "https://voting-rohit-nl2wyor2i-rohitmeshram45s-projects.vercel.app/", // Your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
 }));
 
