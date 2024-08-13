@@ -8,12 +8,7 @@ app.use(bodyParser.json()); // req.body
 const PORT = process.env.REACT_APP_PORT;
 
 const cookieParser = require('cookie-parser');
-
 const path = require('path');
-// Import the router files
-const userRoutes = require('./routes/userRoutes');
-const candidateRoutes = require('./routes/candidateRoutes');
-const contactRoutes = require('./routes/contactRoutes');
 
 const allowedOrigins = [
     'https://voting-rohit.vercel.app',
@@ -29,19 +24,25 @@ const corsOptions = {
         }
     }
 };
-// 
+
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(cookieParser());
+
+
+// Import the router files
+const userRoutes = require('./routes/userRoutes');
+const candidateRoutes = require('./routes/candidateRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+
 // Use the routers
 
 app.use(express.static(path.join(__dirname, 'frontend/build')));
-
-app.use(express.json());
-app.use(cookieParser());
 
 app.use('/user', userRoutes);
 app.use('/candidate', candidateRoutes);
 app.use('/contact', contactRoutes);
 
-app.use(cors(corsOptions));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
