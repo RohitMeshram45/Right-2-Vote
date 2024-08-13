@@ -15,14 +15,33 @@ const userRoutes = require('./routes/userRoutes');
 const candidateRoutes = require('./routes/candidateRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 
-app.use(cors({
-    origin: process.env.REACT_APP_FRONTEND_CONNECTTION, // Your frontend URL
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-}));
+
+const allowedOrigins = [process.env.REACT_APP_FRONTEND_CONNECTTION];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Check if the origin is in the allowedOrigins array
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // if your frontend needs to send or receive cookies
+};
+
+
+// app.use(cors({
+//     origin: process.env.REACT_APP_FRONTEND_CONNECTTION, // Your frontend URL
+//     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+// }));
 // Use the routers
 
 app.use(express.json());
 app.use(cookieParser());
+
+// Use the CORS middleware
+app.use(cors(corsOptions));
 
 app.use('/user',()=> console.log("User Routes found"), userRoutes);
 app.use('/candidate', candidateRoutes);
