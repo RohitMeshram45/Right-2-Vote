@@ -8,11 +8,11 @@ const Profile = () => {
 
   const { name, age, email, phone, address, aadharnumber, password, role } = Users;
 
-  console.log("Users-> ", Users)
+  // console.log("Users-> ", Users)
 
   useEffect(() => {
     setLogin(true)
-    console.log("user Dekon re")
+    // console.log("user Dekon re")
 
     displayUser();
     console.log("Users-> ", Users)
