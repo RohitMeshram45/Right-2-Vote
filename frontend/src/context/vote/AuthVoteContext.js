@@ -105,7 +105,7 @@ export const AuthVoteProvider = ({ children }) => {
                     'Content-Type': 'application/json',
                 }
             });
-            console.log("response of user update --->", response.data)
+            // console.log("response of user update --->", response.data)
             SetUsers(response.data);
             const result = response.data;
             if (result.sucess === true) {
@@ -147,7 +147,7 @@ export const AuthVoteProvider = ({ children }) => {
         // console.log("response checking on")
 
         const response = await axios.post(loginUrl, { aadharnumber, password });
-        console.log("response -: ", response)
+        // console.log("response -: ", response)
 
         SetUsers(response.data);
         const token = response.data.token;
@@ -174,7 +174,7 @@ export const AuthVoteProvider = ({ children }) => {
 
             SetCandidates(response.data)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             alert("Candidates Not founds")
         }
     }
@@ -229,7 +229,7 @@ export const AuthVoteProvider = ({ children }) => {
                 }
             })
 
-            console.log("Admin Details response --> ", response);
+            // console.log("Admin Details response --> ", response);
             return response.data;
         } catch (error) {
             alert("Something went wrong to Get Admin Details")
@@ -258,7 +258,7 @@ export const AuthVoteProvider = ({ children }) => {
             console.log("Candidate id mil rahi h.........")
             const votingUrl = `${host}/candidate/vote/${candidateID}`
             const token = localStorage.getItem('token');
-            console.log(token, " voting token------")
+            // console.log(token, " voting token------")
 
             const response = await axios.post(votingUrl, {}, {
                 headers: {
@@ -272,7 +272,7 @@ export const AuthVoteProvider = ({ children }) => {
                 alert(response.data.message, "-------------Rohit 1")
             }
 
-            console.log(response, "------response")
+            // console.log(response, "------response")
             alert(response.data.message)
             setIsLogin(true)
             return response.data;
@@ -281,7 +281,7 @@ export const AuthVoteProvider = ({ children }) => {
             alert("Login Please")
             console.error('Request failed:', error);
             if (error.response) {
-                console.error('Status code:', error.response.status);
+                // console.error('Status code:', error.response.status);
                 console.error('Data:', error.response.data);
             }
         }
@@ -295,7 +295,7 @@ export const AuthVoteProvider = ({ children }) => {
                 "Content-type": "application/json",
             }
         })
-        console.log("vote Count -> ", response)
+        // console.log("vote Count -> ", response)
         setVotes(response.data);
     }
 
