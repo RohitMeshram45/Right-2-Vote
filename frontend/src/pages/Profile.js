@@ -15,7 +15,7 @@ const Profile = () => {
     // console.log("user Dekon re")
 
     displayUser();
-    console.log("Users-> ", Users)
+    // console.log("Users-> ", Users)
   }, [displayUser]);
 
   const toUpperCase = (str) => {
