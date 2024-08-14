@@ -13,7 +13,7 @@ const Contact = () => {
   const handleContact = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await Contact({ name, email, massege });
+      const  data  = await Contact({ name, email, massege });
 
       console.log("Data of Contact --- ", data)
 
