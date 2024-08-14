@@ -13,18 +13,15 @@ const Contact = () => {
   const handleContact = async (e) => {
     e.preventDefault();
     try {
-      const  data  = await Contact({ name, email, massege });
-
-      console.log("Data of Contact --- ", data)
-
-      alert("data contact Having ")
-
+        const data = await Contact({ name, email, massege });
+        // console.log("Data of Contact --- ", data);
+        alert("Data submitted successfully!");
     } catch (error) {
-      alert("Internal server Error")
-      console.log("Error while Contact")
-      navigate('/')
+        console.error("Error during contact submission:", error);
+        alert("An error occurred while submitting your data. Please try again.");
+        navigate('/');
     }
-  }
+};
 
   return (
     <Layout>
