@@ -17,7 +17,7 @@ router.post('/signup', async (req, res) => {
 
         // Validate Aadhar Card Number must have exactly 12 digit
         if (!/^\d{12}$/.test(data.aadharnumber)) {
-            console.log("aadharnumber:", { aadharnumber: data.aadharnumber })
+            // console.log("aadharnumber:", { aadharnumber: data.aadharnumber })
             return res.status(300).json({ error: 'Aadhar Card Number must be exactly 12 digits' });
         }
 
@@ -60,7 +60,7 @@ router.post('/login', async (req, res) => {
     try {
         // Extract aadharCardNumber and password from request body
         const { aadharnumber, password } = req.body;
-        console.log("req.body : ", req.body)
+        // console.log("req.body : ", req.body)
 
 
         // Check if aadharCardNumber or password is missing
@@ -100,7 +100,7 @@ router.get('/profile', jwtAuthMiddleware, async (req, res) => {
         const user = await User.findById(userId);
         res.status(200).json(user);
     } catch (err) {
-        console.error(err);
+        // console.error(err);
         res.status(500).json({ sucess: true, error: 'Internal Server Error' });
     }
 })
