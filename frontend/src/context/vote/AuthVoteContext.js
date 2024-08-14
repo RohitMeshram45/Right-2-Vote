@@ -237,19 +237,16 @@ export const AuthVoteProvider = ({ children }) => {
     }
 
 
-    const Contact = async (req, res) => {
-        try {
-
-            const { name, email, massege } = req.body;
-            const response = await axios.post(`${host}/contact`, { name, email, massege });
-
-            console.log("Contact Data -- ", response);
-
-            res.status(200).json({ sucess: true, massege: "Contact Saved Succefully" });
-        } catch (error) {
-            console.log(error);
-        }
+  const Contact = async ({ name, email, massege }) => {
+    try {
+        const response = await axios.post(`${host}/contact`, { name, email, massege });
+        return response.data;
+    } catch (error) {
+        console.error("Error while sending contact data:", error);
+        throw error;
     }
+};
+
 
     //    endpoint for voting
 
